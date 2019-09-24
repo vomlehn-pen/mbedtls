@@ -297,7 +297,7 @@
  *
  * Uncomment to enable validation of application-controlled parameters.
  */
-#define MBEDTLS_CHECK_PARAMS
+//#define MBEDTLS_CHECK_PARAMS
 
 /* \} name SECTION: System support */
 
