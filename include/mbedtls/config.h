@@ -86,6 +86,7 @@
  * example, if double-width division is implemented in software, disabling
  * it can reduce code size in some embedded targets.
  */
+// FIXME: verify this.
 //#define MBEDTLS_NO_UDBL_DIVISION
 
 /**
@@ -108,6 +109,7 @@
  * Note that depending on the compiler, this may decrease performance compared
  * to using the library function provided by the toolchain.
  */
+// FIXME: verify this
 //#define MBEDTLS_NO_64BIT_MULTIPLICATION
 
 /**
@@ -196,7 +198,7 @@
  * Uncomment to prevent default assignment of standard functions in the
  * platform layer.
  */
-//#define MBEDTLS_PLATFORM_NO_STD_FUNCTIONS
+#define MBEDTLS_PLATFORM_NO_STD_FUNCTIONS
 
 /**
  * \def MBEDTLS_PLATFORM_EXIT_ALT
@@ -221,12 +223,12 @@
  * Uncomment a macro to enable alternate implementation of specific base
  * platform function
  */
-#define MBEDTLS_PLATFORM_EXIT_ALT
+//#define MBEDTLS_PLATFORM_EXIT_ALT
 //#define MBEDTLS_PLATFORM_TIME_ALT
 //#define MBEDTLS_PLATFORM_FPRINTF_ALT
-#define MBEDTLS_PLATFORM_PRINTF_ALT
+//#define MBEDTLS_PLATFORM_PRINTF_ALT
 #define MBEDTLS_PLATFORM_SNPRINTF_ALT
-#define MBEDTLS_PLATFORM_VSNPRINTF_ALT
+//#define MBEDTLS_PLATFORM_VSNPRINTF_ALT
 //#define MBEDTLS_PLATFORM_NV_SEED_ALT
 //#define MBEDTLS_PLATFORM_SETUP_TEARDOWN_ALT
 
@@ -243,7 +245,7 @@
  *
  * Uncomment to get warnings on using deprecated functions.
  */
-//#define MBEDTLS_DEPRECATED_WARNING
+#define MBEDTLS_DEPRECATED_WARNING
 
 /**
  * \def MBEDTLS_DEPRECATED_REMOVED
@@ -255,7 +257,7 @@
  *
  * Uncomment to get errors on using deprecated functions.
  */
-//#define MBEDTLS_DEPRECATED_REMOVED
+#define MBEDTLS_DEPRECATED_REMOVED
 
 /**
  * \def MBEDTLS_CHECK_PARAMS
@@ -672,7 +674,7 @@
  * \warning   DES is considered a weak cipher and its use constitutes a
  *            security risk. We recommend considering stronger ciphers instead.
  */
-#define MBEDTLS_ENABLE_WEAK_CIPHERSUITES
+//#define MBEDTLS_ENABLE_WEAK_CIPHERSUITES
 
 /**
  * \def MBEDTLS_REMOVE_ARC4_CIPHERSUITES
@@ -685,7 +687,7 @@
  *
  * Uncomment this macro to remove RC4 ciphersuites by default.
  */
-//#define MBEDTLS_REMOVE_ARC4_CIPHERSUITES
+#define MBEDTLS_REMOVE_ARC4_CIPHERSUITES
 
 /**
  * \def MBEDTLS_REMOVE_3DES_CIPHERSUITES
@@ -705,7 +707,7 @@
  *
  * Comment this macro to keep 3DES in the default ciphersuite list.
  */
-//#define MBEDTLS_REMOVE_3DES_CIPHERSUITES
+#define MBEDTLS_REMOVE_3DES_CIPHERSUITES
 
 /**
  * \def MBEDTLS_ECP_DP_SECP192R1_ENABLED
@@ -2343,7 +2345,7 @@
  *
  * This module enables mbedtls_strerror().
  */
-#define MBEDTLS_ERROR_C
+//#define MBEDTLS_ERROR_C
 
 /**
  * \def MBEDTLS_GCM_C
@@ -2506,7 +2508,7 @@
  *
  * Enable this module to enable the buffer memory allocator.
  */
-//#define MBEDTLS_MEMORY_BUFFER_ALLOC_C
+#define MBEDTLS_MEMORY_BUFFER_ALLOC_C
 
 /**
  * \def MBEDTLS_NET_C
@@ -3161,7 +3163,7 @@
 //#define MBEDTLS_PLATFORM_STD_FPRINTF      fprintf /**< Default fprintf to use, can be undefined */
 //#define MBEDTLS_PLATFORM_STD_PRINTF        printf /**< Default printf to use, can be undefined */
 /* Note: your snprintf must correctly zero-terminate the buffer! */
-//#define MBEDTLS_PLATFORM_STD_SNPRINTF    snprintf /**< Default snprintf to use, can be undefined */
+#define MBEDTLS_PLATFORM_STD_SNPRINTF    snprintf /**< Default snprintf to use, can be undefined */
 //#define MBEDTLS_PLATFORM_STD_EXIT_SUCCESS       0 /**< Default exit value to use, can be undefined */
 //#define MBEDTLS_PLATFORM_STD_EXIT_FAILURE       1 /**< Default exit value to use, can be undefined */
 //#define MBEDTLS_PLATFORM_STD_NV_SEED_READ   mbedtls_platform_std_nv_seed_read /**< Default nv_seed_read function to use, can be undefined */
@@ -3413,6 +3415,8 @@
 #if defined(MBEDTLS_USER_CONFIG_FILE)
 #include MBEDTLS_USER_CONFIG_FILE
 #endif
+
+#include <mbedtls/user_config.h>
 
 #include "check_config.h"
 
