@@ -26,6 +26,7 @@
 #define MBEDTLS_MD_H
 
 #include <stddef.h>
+#include <mbedtls/config.h>
 
 #define MBEDTLS_ERR_MD_FEATURE_UNAVAILABLE                -0x5080  /**< The selected feature is not available. */
 #define MBEDTLS_ERR_MD_BAD_INPUT_DATA                     -0x5100  /**< Bad input parameters to function. */
